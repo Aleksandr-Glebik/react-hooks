@@ -1,11 +1,17 @@
 import React from 'react'
+import {Navbar} from './components/Navbar'
+import {Home} from './pages/Home'
 
 function App() {
   return (
-    <div className={'container pt-4'}>
-      <h1>Hello! This is my new project - react-hooks</h1>
-    </div>
+    <React.Fragment>
+      <Navbar />
+      <div className={'container pt-4'}>
+        <Home />
+      </div>
+    </React.Fragment>
+
   )
 }
 
-export default App;
+export default App
