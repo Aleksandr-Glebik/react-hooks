@@ -25,8 +25,6 @@ export const GithubState = ({ children }) => {
     const search = async value => {
         setLoading()
 
-        console.log('value', value)
-
         const response = await axios.get(
             withCreds(`https://api.github.com/search/users?q=${value}&`)
         )
@@ -39,8 +37,6 @@ export const GithubState = ({ children }) => {
 
     const getUser = async name => {
         setLoading()
-
-        console.log('name', name)
 
         const response = await axios.get(
             withCreds(`https://api.github.com/users/${name}?`)
@@ -55,7 +51,6 @@ export const GithubState = ({ children }) => {
     const getRepos = async name => {
         setLoading()
 
-        console.log('name', name)
         const response = await axios.get(
             withCreds(`https://api.github.com/users/${name}/repos?per_page=10&`)
         )

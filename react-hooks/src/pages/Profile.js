@@ -1,18 +1,19 @@
 import React, { useContext, useEffect, Fragment } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { GithubContext } from '../context/github/githubContext'
+import { Repos } from '../components/Repos'
 
 
 export const Profile = () => {
     let params = useParams()
-    console.log('params.name', params.name.toLowerCase().trim())
+    // console.log('params.name', params.name)
     const {getUser, getRepos, loading, user, repos} = useContext(GithubContext)
-    const urlName = params.name.toLowerCase().trim()
+    const urlName = params.name
 
     useEffect( () => {
         getUser(urlName)
         getRepos(urlName)
-        console.log('useEffect')
+        // console.log('useEffect')
         // eslint-disable-next-line
     }, [])
 
@@ -38,7 +39,7 @@ export const Profile = () => {
                             <img
                               src={avatar_url}
                               alt={name}
-                              style={{width: '200px'}}
+                              style={{width: '150px'}}
                             />
                             <h1>{name}</h1>
                             {location && <p>Местоположение: {location}</p>}
@@ -79,7 +80,7 @@ export const Profile = () => {
                     </div>
                 </div>
             </div>
-            {repos.join()}
+            <Repos repos={repos}/>
         </Fragment>
     )
 }
