@@ -1,4 +1,10 @@
-import { CLEAT_USERS, GET_REPOS, GET_USER, SEARCH_USERS, SET_LOADING } from "../types"
+import {
+    CLEAT_USERS,
+    GET_REPOS,
+    GET_USER,
+    SEARCH_USERS,
+    SET_LOADING
+ } from "../types.ts"
 
 const handlers = {
     [SEARCH_USERS]: (state, {payload}) => ({...state, users: payload, loading: false }),

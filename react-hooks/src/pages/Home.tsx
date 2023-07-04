@@ -1,11 +1,12 @@
 import React, {Fragment, useContext} from 'react'
-import { Card } from '../components/Card'
-import { Search } from '../components/Search'
-import { GithubContext } from '../context/github/githubContext'
+import { Card } from '../components/Card.tsx'
+import { Search } from '../components/Search.tsx'
+import { GithubContext } from '../context/github/githubContext.tsx'
+import { Loader } from '../components/Loader/Loader.tsx'
 
-export const Home = () => {
+export const Home: React.FC = () => {
 
-    const {loading, users} = useContext(GithubContext)
+    const { loading, users } = useContext(GithubContext)
 
     return (
         <Fragment>
@@ -13,7 +14,7 @@ export const Home = () => {
 
             <div className={'row'}>
                 {loading
-                    ? <p className={'text-center'}>Загрузка</p>
+                    ? <Loader />
                     : users.map( (user, i) => {
                         return (
                             <div key={user.id} className={'col-sm-4 mb-4'}>

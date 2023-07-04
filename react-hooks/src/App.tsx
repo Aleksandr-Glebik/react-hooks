@@ -1,14 +1,14 @@
 import React from 'react'
-import {BrowserRouter, Routes, Route} from 'react-router-dom'
-import {Navbar} from './components/Navbar'
-import {Home} from './pages/Home'
-import {About} from './pages/About'
-import {Profile} from './pages/Profile'
-import { Alert } from './components/Alert'
-import { AlertState } from './context/alert/AlertState'
-import { GithubState } from './context/github/githubState'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { Navbar } from './components/Navbar.tsx'
+import { Home } from './pages/Home.tsx'
+import { About } from './pages/About.tsx'
+import { Profile } from './pages/Profile.tsx'
+import { Alert } from './components/Alert.tsx'
+import { AlertState } from './context/alert/AlertState.tsx'
+import { GithubState } from './context/github/githubState.tsx'
 
-function App() {
+const App: React.FC = () => {
   return (
     <GithubState>
       <AlertState>

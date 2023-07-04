@@ -1,6 +1,6 @@
 import React from "react"
 
-export const Repos = ({repos}) => (
+export const Repos: React.FC = ({repos}) => (
     <React.Fragment>
 
         {repos.map( repo => (

@@ -1,10 +1,11 @@
 import React, { useContext, useEffect, Fragment } from 'react'
 import { Link, useParams } from 'react-router-dom'
-import { GithubContext } from '../context/github/githubContext'
-import { Repos } from '../components/Repos'
+import { GithubContext } from '../context/github/githubContext.tsx'
+import { Repos } from '../components/Repos.tsx'
+import { Loader } from '../components/Loader/Loader.tsx'
 
 
-export const Profile = () => {
+export const Profile: React.FC = () => {
     let params = useParams()
     // console.log('params.name', params.name)
     const {getUser, getRepos, loading, user, repos} = useContext(GithubContext)
@@ -18,7 +19,7 @@ export const Profile = () => {
     }, [])
 
     if (loading) {
-        return <p className='text-center'>Загрузка...</p>
+        return <Loader />
     }
 
     const {

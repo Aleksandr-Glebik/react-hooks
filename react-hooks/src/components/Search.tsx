@@ -1,9 +1,9 @@
-import React, {useContext, useState} from 'react'
-import { AlertContext } from '../context/alert/alertContext'
-import { GithubContext } from '../context/github/githubContext'
+import React, {useContext, useState, useEffect} from 'react'
+import { AlertContext } from '../context/alert/alertContext.tsx'
+import { GithubContext } from '../context/github/githubContext.tsx'
 
-export const Search = () => {
-    const [value, setValue] = useState('')
+export const Search: React.FC = () => {
+    const [value, setValue] = useState<string>('')
     const alert = useContext(AlertContext)
     const github = useContext(GithubContext)
 
@@ -18,13 +18,18 @@ export const Search = () => {
             alert.hide()
             github.search(value.trim())
         } else {
-            alert.show('Ввудите данные пользователя')
+            alert.show('Введите данные пользователя')
         }
 
     }
 
+    useEffect(() => {
+        setValue('')
+        github.clearUsers()
+    }, [])
+
     return (
-        <div className={'form-group'}>
+        <div className={'form-group pb-4'}>
             <input
                 type={'text'}
                 className={'form-control'}
